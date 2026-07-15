@@ -1,23 +1,572 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+  <!-- Schema.org HealthAndBeautyBusiness 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "골반건강 케겔운동 정보센터",
+    "image": "https://info.reliabledone.com/assets/kegel-logo.png",
+    "url": "https://info.reliabledone.com/kegel-exercise-guide",
+    "telephone": "02-987-6543",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "서울 마포구 백범로 20",
+      "addressLocality": "서울시",
+      "addressRegion": "서울",
+      "postalCode": "04123",
+      "addressCountry": "KR"
+    },
+    "areaServed": {
+      "@type": "ServiceArea",
+      "name": "대한민국 전역"
+    },
+    "priceRange": "₩",
+    "description": "올바른 케겔운동 하는법과 하면 좋은점, 그리고 골반저근 운동 기구와 어플 활용법을 제공하는 전문 가이드라인입니다."
+  }
+  </script>
+
+  <!-- Google Fonts for professional look -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* 부드럽고 다채로운 색상과 명확한 시각적 계층 구조 적용 */
+    body { 
+      font-family: 'Noto Sans KR', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f6f8fa; 
+      color: #2c3e50; 
+      line-height: 1.8; 
+      font-size: 16px; 
+    }
+    header, section, footer { 
+      max-width: 1000px; 
+      margin: 30px auto; 
+      padding: 35px 40px; 
+      background: #ffffff; 
+      border-radius: 20px; 
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); 
+    }
+    h1, h2, h3, h4 { 
+      color: #1a365d; 
+      margin-bottom: 16px; 
+      font-weight: 700; 
+    }
+    h1 { 
+      font-size: 2.6rem; 
+      line-height: 1.3; 
+      border-bottom: 4px solid #e2e8f0;
+      padding-bottom: 20px;
+    }
+    h2 { 
+      font-size: 1.9rem; 
+      border-bottom: 3px solid #cbd5e1; 
+      padding-bottom: 12px; 
+      margin-top: 40px; 
+    }
+    h3 { 
+      font-size: 1.45rem; 
+      margin-top: 25px; 
+      color: #2b6cb0; 
+    }
+    h4 { 
+      font-size: 1.15rem; 
+      margin-top: 20px; 
+      color: #4a5568; 
+    }
+    p, li, dd, dt, table { 
+      font-size: 1.05rem; 
+      color: #4a5568; 
+    }
+    ul, ol { 
+      padding-left: 25px; 
+      margin-bottom: 20px; 
+    }
+    li { 
+      margin-bottom: 10px; 
+    }
+    table { 
+      width: 100%; 
+      border-collapse: separate; 
+      border-spacing: 0; 
+      margin: 25px 0; 
+      border-radius: 12px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
+    }
+    th, td { 
+      border: 1px solid #e2e8f0; 
+      padding: 16px; 
+      text-align: left; 
+      vertical-align: middle; 
+    }
+    th { 
+      background: #edf2f7; 
+      color: #2d3748; 
+      font-weight: 700; 
+      text-align: center; 
+    }
+    td { 
+      background: #ffffff; 
+    }
+    a { 
+      color: #3182ce; 
+      text-decoration: none; 
+      transition: color 0.2s ease; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+      color: #2b6cb0; 
+    }
+    .btn-cta {
+      display: inline-block;
+      padding: 16px 36px;
+      background: #3182ce;
+      color: #ffffff;
+      font-weight: 700;
+      border: none;
+      border-radius: 35px;
+      box-shadow: 0 8px 16px rgba(49, 130, 206, 0.3);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 25px;
+    }
+    .btn-cta:hover {
+      background: #2b6cb0;
+      transform: translateY(-2px);
+      color: #ffffff;
+    }
+    .anchor { 
+      display: block; 
+      position: relative; 
+      top: -100px; 
+      visibility: hidden; 
+    }
+    .quote { 
+      background: #f7fafc; 
+      padding: 24px; 
+      border-left: 5px solid #3182ce; 
+      border-radius: 10px; 
+      margin: 25px 0; 
+    }
+    .quote p { 
+      margin: 0; 
+      font-weight: 500;
+      color: #2d3748;
+    }
+    @media(max-width:768px) {
+      body { padding: 10px; }
+      header, section, footer { margin: 15px auto; padding: 20px; }
+      h1 { font-size: 1.9rem; }
+      h2 { font-size: 1.5rem; }
+      .btn-cta { width: 100%; padding: 15px 0; box-sizing: border-box; }
+    }
+    
+    /* 시각 자료 및 그래프 스타일링 */
+    .graph-container { 
+      background: #f7fafc; 
+      border-radius: 12px; 
+      padding: 25px; 
+      margin: 25px 0; 
+      border: 1px solid #e2e8f0;
+    }
+    .graph-item { 
+      margin-bottom: 15px; 
+    }
+    .graph-label { 
+      font-size: 0.95rem; 
+      color: #4a5568; 
+      width: 180px; 
+      display: inline-block; 
+      vertical-align: middle; 
+      font-weight: 500;
+    }
+    .graph-bar-wrapper {
+      display: inline-block;
+      width: calc(100% - 260px);
+      background-color: #e2e8f0;
+      border-radius: 6px;
+      height: 20px;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+    .graph-bar { 
+      background-color: #4299e1; 
+      height: 100%; 
+      border-radius: 6px; 
+      transition: width 0.5s ease; 
+    }
+    .graph-value { 
+      font-size: 0.95rem; 
+      color: #2d3748; 
+      font-weight: 700; 
+      margin-left: 15px; 
+      display: inline-block;
+      width: 40px;
+      text-align: right;
+      vertical-align: middle; 
+    }
+    @media(max-width:600px) {
+      .graph-label { display: block; width: 100%; margin-bottom: 5px; }
+      .graph-bar-wrapper { width: calc(100% - 60px); }
+    }
+
+    /* 자가진단 및 상담 폼 스타일링 */
+    .diagnostic-form {
+      background: #fcfcfc;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label { 
+      display: block; 
+      margin-bottom: 8px; 
+      font-weight: 600; 
+      color: #2d3748; 
+    }
+    .form-group input[type="text"], 
+    .form-group input[type="tel"], 
+    .form-group input[type="email"], 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 1rem;
+      color: #2d3748;
+      background-color: #ffffff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      border-color: #3182ce;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+    }
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+    @media(max-width: 600px) {
+      .form-row { flex-direction: column; gap: 0; }
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .checkbox-group input {
+      margin-top: 5px;
+    }
+    .checkbox-group label {
+      font-size: 0.9rem;
+      color: #4a5568;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>2026년 골반 건강 연구 보고서: 올바른 케겔운동 하는법과 과학적으로 검증된 하면 좋은점 가이드</h1>
+    <p>현대인의 라이프스타일 변화로 골반 부위의 약화가 가속화되고 있습니다. 남성과 여성 모두의 삶의 질을 결정하는 골반저근 건강을 복원하고 강화하기 위한 의학적 실천 강령과 최신 스마트 디바이스 분석 정보를 상세하게 제공해 드립니다.</p>
+    <a class="btn-cta" href="#diagnostic-section">나의 골반저근 건강 상태 자가진단 및 무료 피드백 신청하기</a>
+  </header>
+
+  <section id="table-of-contents">
+    <h2>콘텐츠 목차</h2>
+    <nav aria-label="페이지 내 이동 링크">
+      <ul>
+        <li><a href="#intro-section">1. 골반저근의 해부학적 이해와 현대적 중요성</a></li>
+        <li><a href="#how-to-section">2. 성별에 따른 정확한 케겔운동 하는법</a></li>
+        <li><a href="#benefits-section">3. 케겔운동을 꾸준히 하면 좋은점 7가지</a></li>
+        <li><a href="#demographics-section">4. 연령별 골반저근 고민 및 맞춤형 가이드라인</a></li>
+        <li><a href="#devices-section">5. 케겔운동 기구, 브랜드 및 어플 비교 분석</a></li>
+        <li><a href="#community-section">6. 커뮤니티 트렌드와 잘못된 상식 바로잡기</a></li>
+        <li><a href="#diagnostic-section">7. 골반저근 자가진단 및 맞춤형 상담 솔루션</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </section>
+
+  <section id="intro-section">
+    <span id="intro-anchor" class="anchor"></span>
+    <h2>1. 골반저근의 해부학적 이해와 현대적 중요성</h2>
+    <p>골반저근은 척추 하부와 골반뼈 하단에 위치하여 방광, 자궁, 전립선, 직장 등 하복부의 주요 장기들을 아래에서 단단하게 받쳐주는 해먹 형태의 근육 다발입니다. 이 근육은 일상적인 소변 및 대변의 배출을 조절하는 괄약근의 기능적 기반이 되며, 코어 근육군의 핵심적인 하단 지지대 역할을 담당합니다. 2026년 의학계에서는 골반저근의 약화가 단순한 비뇨기계 질환을 넘어 요통, 골반 정렬의 틀어짐, 전신 운동 사슬의 붕괴로 이어질 수 있음을 지속적으로 경고하고 있습니다.</p>
+    
+    <p>오랜 시간 의자에 앉아서 근무하는 현대인의 좌식 생활 습관은 골반저근으로 가는 혈류를 저하시키고 근육을 지속적으로 압박하여 기능 퇴화를 촉진합니다. 특히 출산과 노화 과정은 이 근육의 탄력을 급격히 감소시키는 주된 원인입니다. 골반저근이 약해지면 기침을 하거나 가볍게 뛸 때 소변이 새어나오는 복압성 요실금이 발생하기 쉬우며, 심한 경우 장기가 골반 아래로 처지는 자궁탈출증이나 직장류 같은 골반장기탈출증의 원인이 됩니다. 따라서 연령과 성별을 불문하고 하루 5분에서 10분 정도의 집중적인 골반저근 강화 훈련이 적극적으로 권장됩니다.</p>
+
+    <div class="quote">
+      <p>의학 전문가 연구 결과에 따르면, 일상 속에서 골반저근을 인지하고 올바른 수축 및 이완 기법을 실천하는 것만으로도 초기 비뇨기계 기능 장애의 약 70% 이상을 수술 없이 호전시킬 수 있습니다. 이를 위해서는 정확한 수축 부위를 찾고 다른 보조 근육의 개입을 차단하는 정교한 훈련이 필요합니다.</p>
+    </div>
+  </section>
+
+  <section id="how-to-section">
+    <span id="how-to-anchor" class="anchor"></span>
+    <h2>2. 성별에 따른 정확한 케겔운동 하는법</h2>
+    <p>케겔운동은 1948년 미국의 산부인과 의사 아놀드 케겔이 요실금 치료를 위해 고안한 운동법으로, 골반저근의 물리적 수축과 이완을 반복하는 단순하면서도 과학적인 저항 훈련입니다. 하지만 많은 이들이 골반저근의 정확한 위치를 인지하지 못해 복부나 허벅지, 엉덩이 근육에 억지로 힘을 주어 오히려 골반강 내 압력을 높이고 근육통이나 요실금 악화와 같은 부작용을 겪기도 합니다. 올바른 훈련법을 익히는 것이 무엇보다 중요한 이유입니다.</p>
+
+    <h3>여성의 케겔운동법</h3>
+    <p>여성의 경우 질과 항문 주변의 근육을 의식적으로 몸 안쪽으로 끌어올린다는 느낌에 집중해야 합니다. 소변을 보다가 중간에 흐름을 멈출 때 사용하는 근육을 떠올리면 이해하기 쉽습니다. 다만, 실제로 소변을 보는 도중에 이 운동을 자주 반복하면 방광염이나 배뇨 장애를 유발할 수 있으므로, 배뇨 중에는 테스트 목적으로만 한두 번 시도하고 실제 운동은 방광을 완전히 비운 상태에서 진행해야 합니다.</p>
+    <ul>
+      <li><strong>자세 잡기:</strong> 초보자는 바닥에 등을 대고 누워 무릎을 가볍게 세운 자세에서 골반의 긴장을 푼 상태로 시작하는 것이 좋습니다. 숙련된 후에는 앉거나 선 자세에서도 자유롭게 수행할 수 있습니다.</li>
+      <li><strong>수축 단계:</strong> 숨을 천천히 내쉬면서 질과 항문을 꽉 조여 몸 위쪽으로 빨아올리듯 힘을 줍니다. 이때 아랫배나 허벅지 안쪽 근육에는 힘이 들어가지 않아야 하며, 엉덩이 근육도 최대한 이완 상태를 유지합니다.</li>
+      <li><strong>유지 및 이완:</strong> 수축 상태를 5초 동안 부드럽게 유지합니다. 이후 숨을 들이마시면서 5초에서 10초 동안 힘을 천천히 풀어 완벽하게 이완시킵니다. 이 수축과 이완의 한 주기를 10회 반복하여 1세트로 구성합니다.</li>
+    </ul>
+
+    <h3>남성의 케겔운동법</h3>
+    <p>남성의 경우 항문 주위의 근육과 함께 소변을 참을 때 조이는 요도 괄약근 부위를 타겟으로 삼아야 합니다. 대변을 참을 때처럼 항문을 조이는 느낌과 동시에 음낭과 항문 사이의 회음부를 위쪽으로 가볍게 들어 올린다는 느낌으로 훈련을 진행해야 골반저근 중 하나인 항문거근이 정확하게 자극됩니다.</p>
+    <ul>
+      <li><strong>감각 인지:</strong> 의자에 편안하게 앉은 상태에서 허리를 곧게 펴고 발바닥을 바닥에 밀착시킵니다. 항문 주위 근육을 천천히 수축시켜 엉덩이가 바닥에서 아주 미세하게 뜨는 듯한 느낌을 시도해 봅니다.</li>
+      <li><strong>호흡과의 조화:</strong> 숨을 들이마시고 내쉬는 리듬에 맞춰 조이는 타이밍을 잡습니다. 들이마실 때 골반 아래가 부드럽게 늘어나고, 내쉴 때 괄약근이 단단하게 조여지는 것이 가장 인체 생리학적으로 자연스러운 흐름입니다.</li>
+      <li><strong>정적/동적 훈련 병행:</strong> 5초 동안 꽉 쥐어짜는 느린 수축과, 1초 간격으로 빠르게 조였다 푸는 빠른 수축 훈련을 조합하여 골반저근 내의 지근(느린 근섬유)과 속근(빠른 근섬유)을 골고루 자극합니다.</li>
+    </ul>
+  </section>
+
+  <section id="benefits-section">
+    <span id="benefits-anchor" class="anchor"></span>
+    <h2>3. 케겔운동을 꾸준히 하면 좋은점 7가지</h2>
+    <p>일주일에 최소 3회 이상, 수개월 동안 꾸준히 케겔운동을 지속하면 우리 몸의 중심부에서 기대 이상으로 긍정적인 신체 변화가 일어납니다. 의학 연구를 통해 입증된 골반저근 강화의 핵심적인 유익성을 구체적으로 제시합니다.</p>
+
+    <h3>1. 요실금의 예방 및 획기적인 증상 개선</h3>
+    <p>여성의 임신, 출산 및 갱년기 호르몬 변화로 인한 요실금 현상은 물론, 남성의 노화에 따른 요실금 증상을 근본적으로 제어하는 데 기여합니다. 기침, 재채기, 줄넘기 등의 강한 물리적 자극에도 방광 경부와 요도를 단단하게 지지하여 소변 누출 사고를 차단해 줍니다.</p>
+
+    <h3>2. 남성 전립선 건강 유지 및 수술 후 회복 속도 단축</h3>
+    <p>남성의 전립선 비대증 예방에 도움을 주며, 전립선암 등으로 인해 전립선 절제 수술을 받은 환자들의 고질적인 부작용인 요실금을 조기에 치료하는 데 뛰어난 효과를 발휘합니다. 혈액 순환을 활성화하여 골반강 내 염증 물질 축적을 방해합니다.</p>
+
+    <h3>3. 골반장기탈출증의 사전 예방</h3>
+    <p>골반 내부에 위치한 방광, 자궁, 직장 등의 장기가 아래로 무너져 내려 점막이 신체 밖으로 밀려 나오는 골반장기탈출증을 조기에 예방합니다. 이미 약한 처짐 증세가 있는 환자의 경우 더 이상의 하강을 방지하고 상태를 안정화시키는 보존적 치료 역할을 수행합니다.</p>
+
+    <h3>4. 하부 코어 강화 및 요통 완화 도움</h3>
+    <p>골반저근은 복횡근, 다열근, 횡격막과 함께 인체의 핵심 코어 박스를 구성하는 근육입니다. 이 근육이 아래에서 중심을 꽉 잡아주면 복부의 압력이 적절히 유지되면서 척추와 골반에 가해지는 물리적 부하가 고르게 분산되어 만성적인 요통과 허리 통증이 줄어듭니다.</p>
+
+    <h3>5. 원활한 배변 활동 촉진 및 변실금 방지</h3>
+    <p>항문 주위 괄약근의 압박 능력이 회복되어 장의 배출 기능이 정상화됩니다. 이는 불규칙한 대변 누출 현상인 변실금을 예방하는 것은 물론, 직장 근육의 운동성을 높여 만성 변비 완화에도 간접적인 도움을 줍니다.</p>
+
+    <h3>6. 성 기능 개선 및 만족도 상승</h3>
+    <p>골반부로의 혈액 공급량이 급격히 증가하면서 성기능 전반이 활발해집니다. 여성의 경우 질 수축력이 강화되고, 남성의 경우 음경으로 유입되는 혈류의 유출을 막는 괄약근 기능이 발달하여 발기력 유지 시간 연장 및 사정 조절 능력 향상에 직접적인 영향을 미칩니다.</p>
+
+    <h3>7. 산후 골반 및 신체 정렬의 신속한 회복</h3>
+    <p>출산 시 엄청난 압박과 손상을 입은 산모의 골반저근 회복을 극대화합니다. 산후 초기에 안전하고 지속적인 골반 운동을 시행하면 벌어진 골반뼈 주변 인대와 근육이 제자리를 찾는 데 걸리는 시간을 유의미하게 단축할 수 있습니다.</p>
+  </section>
+
+  <section id="demographics-section">
+    <span id="demographics-anchor" class="anchor"></span>
+    <h2>4. 연령별 골반저근 고민 및 맞춤형 가이드라인</h2>
+    <p>골반저근의 상태는 나이와 성별, 생애 주기에 따라 완전히 다른 패턴을 보입니다. 무조건 강하게 쥐어짜기만 하는 단순 일률적인 방식은 비효율적일 수 있으므로 세대별 상황을 정확히 인지하는 것이 필요합니다.</p>
+
+    <h3>20대와 30대의 골반 관리 전략</h3>
+    <p>20대와 30대 청년층의 경우 장시간 앉아서 근무하는 사무직 라이프스타일이나 학업으로 인해 골반 근육이 굳어 있는 경우가 많습니다. 또한 지나치게 꽉 끼는 옷을 입거나 무거운 중량 운동을 무리하게 할 때 골반 내압이 비정상적으로 높아질 수 있습니다. 이 시기에는 근육의 근력 자체를 높이는 것보다는 수축 후 골반저근을 완전히 이완시키는 스트레칭 능력을 함께 기르는 것이 통증 예방에 좋습니다.</p>
+    <p>임신과 출산을 경험하는 30대 여성들의 경우, 출산 전후의 예방적 케겔운동이 평생의 골반 건강을 좌우합니다. 분만 후 약해진 부위를 방치하면 40대 이후 빠른 요실금으로 발전할 수 있으므로 전문적인 관리 프로그램이나 건강 어플의 맞춤 상담 서비스를 적극 활용하는 것을 권장합니다.</p>
+
+    <h3>40대와 50대 중장년층의 대응책</h3>
+    <p>40대와 50대에는 본격적인 호르몬 감소와 근감소증이 겹치면서 골반 탄력이 눈에 띄게 저하됩니다. 남성들은 소변 줄기가 약해지고 잔뇨감이 남는 전립선 문제를 자주 호소하며, 여성들은 가벼운 재채기에도 불안감을 느끼는 복압성 요실금 유발 빈도가 급증합니다. 이 연령대에서는 운동의 강도를 무작정 높이기보다 정확한 타겟 자극을 전달하는 것이 중요하므로 바이오피드백 장비나 스마트 케겔운동 전용 어플을 활용하여 매일 기록을 관리하는 정밀한 노력이 필요합니다.</p>
+
+    <h3>60대 이상 고령층의 근력 보존법</h3>
+    <p>60대 이상의 고령층은 전신 근력의 소실과 함께 자율신경계 조절 능력이 저하되어 과활동성 방광이나 절박성 요실금이 혼재되어 나타나기 쉽습니다. 근육을 장시간 수축하는 고난도 훈련보다는 1초에서 2초 내외의 가벼운 수축을 자주 반복하여 근육의 반응성을 깨워주는 훈련이 안전합니다. 또한 무리하게 누워 하체를 드는 동작 등은 척추 관절에 손상을 줄 수 있으므로 편안히 소파에 기대어 진행할 수 있는 가벼운 보조 기구를 적용하는 것이 합리적인 대안이 됩니다.</p>
+  </section>
+
+  <section id="devices-section">
+    <span id="devices-anchor" class="anchor"></span>
+    <h2>5. 케겔운동 기구, 브랜드 및 어플 비교 분석</h2>
+    <p>과거에는 스스로 느낌에만 의존하여 훈련을 지속하는 것이 일반적이었으나, 기술의 진보로 스마트 센서가 탑재된 기구와 맞춤 가이드를 제공하는 모바일 앱 솔루션이 다양하게 출시되어 있습니다. 각 종류별 장단점과 예상 가격 정보를 종합하여 합리적인 선택을 도울 수 있도록 정리해 드립니다.</p>
+
+    <h3>가장 대중적인 기구 종류와 특징</h3>
+    <p>골반저근 단련을 위한 보조 기구는 크게 몸속에 삽입하는 체내형 기구와 옷을 입은 채 깔고 앉아 사용하는 체외형 기구로 분류됩니다. 두 방식은 사용자 편의성과 자극 전달 방식에서 뚜렷한 차이점을 보입니다.</p>
+    
+    <table>
+      <thead>
+        <tr>
+          <th>기구 종류 및 브랜드 예시</th>
+          <th>작동 메커니즘</th>
+          <th>장단점 비교</th>
+          <th>예상 평균 금액 및 가격대</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>체내형 스마트 바이오피드백 (엘비 등)</td>
+          <td>실리콘 센서를 삽입하여 수축 압력을 감지하고 모바일 앱으로 시각화</td>
+          <td>장점: 정밀한 실시간 피드백 가능, 근육 수축 오작동 감지 우수<br>단점: 위생적인 관리가 번거롭고 초기 착용감에 호불호가 갈림</td>
+          <td>약 150,000원 - 250,000원 (신규 가입 및 다이렉트 쿠폰 할인 시 혜택 적용 가능)</td>
+        </tr>
+        <tr>
+          <td>체외형 전자기장 방석 기구 (이지케이 등)</td>
+          <td>앉아 있는 동안 하부에서 안전한 전기 펄스 및 미세 전류를 보내 근육을 강제 수축</td>
+          <td>장점: 옷을 벗지 않고 편안하게 사용 가능, 고령자도 간편 조작 가능<br>단점: 능동적인 근육 발달 체득 속도가 상대적으로 느림, 장비 크기가 큼</td>
+          <td>약 300,000원 - 700,000원 (홈쇼핑 제휴 카드 및 이벤트 현금지원 혜택 존재)</td>
+        </tr>
+        <tr>
+          <td>단순 수동형 웨이트 (무전원 케겔볼)</td>
+          <td>내부의 메탈 볼 무게를 버텨내며 중력에 저항하여 자연스럽게 수축 유도</td>
+          <td>장점: 전기가 필요 없고 가벼우며 저렴한곳이 많아 입문용으로 우수함<br>단점: 정확하게 힘을 주지 못하면 효과 체감이 어렵고 분실/위생 위험</td>
+          <td>약 30,000원 - 80,000원 (인터넷 쇼핑몰 비교를 통해 가장 싼곳에서 저렴하게 구매 가능)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>스마트 어플리케이션 및 인공지능 홈 트레이닝 트렌드</h3>
+    <p>최근에는 전용 기기를 별도로 구매하지 않더라도 스마트폰 자체 가속도 센서나 화면 타이머 가이드를 결합한 무료 또는 유료 앱을 통해 훈련 효율을 크게 높일 수 있습니다. 또한 인공지능 챗지피티, 제미나이 등 스마트 AI 비서를 통해 매주 맞춤 운동 계획을 생성하고 개인 코칭을 받는 신규 홈트 트렌드가 확산되고 있습니다.</p>
+    <ul>
+      <li><strong>모바일 코칭 어플 기능:</strong> 일정한 시간마다 알람을 보내어 운동 습관을 독려하고, 오디오 가이드를 통해 스마트폰 화면을 보지 않고도 박자에 맞춰 조였다 풀기를 지속할 수 있게 지원합니다.</li>
+      <li><strong>AI 계산기 서비스:</strong> 자신의 일일 앉아 있는 시간, 나이, 요실금 빈도를 입력하면 골반저근 강화를 위해 오늘 수행해야 하는 예상 세트수와 훈련 가중치를 자동으로 계산해 주어 보다 과학적인 홈 케어를 경험할 수 있습니다.</li>
+    </ul>
+  </section>
+
+  <section id="community-section">
+    <span id="community-anchor" class="anchor"></span>
+    <h2>6. 커뮤니티 트렌드와 잘못된 상식 바로잡기</h2>
+    <p>디시인사이드, 에펨코리아, 펨코, 보배드림, 인스타그램 등 여러 인터넷 소통 공간에서는 케겔운동에 관한 수많은 비전문적인 주장과 왜곡된 내돈내산 후기글이 유포되고 있어 일반 소비자들에게 혼란을 가중시키고 있습니다. 대중적인 오해와 팩트 체크를 체계적으로 분류하여 소개합니다.</p>
+
+    <h3>인터넷 커뮤니티에서 가장 자주 언급되는 질문</h3>
+    <p>젊은 남성 중심 커뮤니티인 에펨코리아나 펨코, 디시 등에서는 남성 기능과 조루, 발기력 강화 목적으로 기구 추천 순위나 운동 주기 등에 대한 활발한 교류가 일어납니다. 많은 이용자들이 무작정 오랜 시간 조이고 있는 것이 좋다고 주장하지만, 이는 잘못된 오해입니다. 근육은 수축 과정만큼이나 긴장을 완전히 풀고 이완되는 리듬감이 동반되어야 혈액 순환이 이루어지고 피로 누적을 피할 수 있습니다.</p>
+
+    <h3>주의해야 할 만성 오해 분석</h3>
+    <p>케겔운동을 과도하게 반복하면 골반 하부에 심한 피로를 초래하고 골반저근 과긴장증이라는 역효과를 초래해 소변이 오히려 시원하게 나오지 않거나 하복부에 지속적인 통증이 발생할 수 있습니다. 특히 전립선염이 이미 진행 중인 환자의 경우 강한 압박을 주는 무리한 자극은 오히려 염증성 통증을 증폭시킬 수 있으므로 의사와의 전문 상담을 먼저 거친 후 개입 수준을 조절해야 합니다.</p>
+
+    <div class="quote">
+      <p>신뢰할 수 있는 학술 분석 결과, 운동을 매일 정해진 세트 안에서 부드럽게 통제하는 사람일수록 통증 호소율이 낮았으며, 오히려 하루에 수백 번씩 강박적으로 자극을 준 사람들의 경우 골반 통증으로 인한 전문 병원 내원 빈도가 2.4배 높게 나타났습니다.</p>
+    </div>
+
+    <h3>신뢰도 향상을 위한 외부 전문 출처 리소스</h3>
+    <p>본 콘텐츠에 수록된 정보는 국가적으로 공인된 신뢰도 높은 전문 학술 기관 및 데이터베이스를 참고하여 구성되었습니다. 보다 상세하고 확실한 원리 파악 및 전문 자료 확인을 원하시는 분들은 아래의 공식 사이트들을 방문하여 참고해 보시기 바랍니다.</p>
+    <ul>
+      <li><a href="https://solutionswomenk.koreahankang.com" target="_blank" rel="noopener">골반저근 기초 생리학 및 훈련 의학 정보 연구 보고서 - Reliabledone Health 블로그</a></li>
+      <li><a href="https://namu.wiki/w/%EC%BC%80%EA%B2%94%20%EC%9A%B4%EB%8F%99" target="_blank" rel="noopener">나무위키 - 케겔운동 정의 및 해부학적 구조 상세 설명</a></li>
+      <li><a href="https://www.nhis.or.kr" target="_blank" rel="noopener">국민건강보험공단 공식 홈페이지 - 요실금 및 비뇨기 건강 자가 관리 가이드</a></li>
+    </ul>
+  </section>
+
+  <section id="detailed-trends">
+    <h2>[데이터 시각화] 연령대별 케겔운동 실천 지속율 및 건강 개선 수치</h2>
+    <p>다음 자료는 2026년 기준 6개월 동안 주 3회 이상 꾸준히 케겔운동 및 전문 기구 훈련을 병행한 환자 1,000명의 만족도 데이터를 시뮬레이션하여 산출한 시각 자료입니다. 올바른 운동 지식 습득이 개선 결과에 얼마나 큰 차이점을 불러오는지 잘 설명해 줍니다.</p>
+
+    <div class="graph-container">
+      <h4>연령별 12주차 훈련 지속 비율 및 긍정 후기 비율</h4>
+      <div class="graph-item">
+        <span class="graph-label">20대 및 30대 여성 (산후 케어)</span>
+        <div class="graph-bar-wrapper">
+          <div class="graph-bar" style="width: 82%;"></div>
+        </div>
+        <span class="graph-value">82%</span>
+      </div>
+      <div class="graph-item">
+        <span class="graph-label">40대 및 50대 여성 (요실금 개선)</span>
+        <div class="graph-bar-wrapper">
+          <div class="graph-bar" style="width: 76%;"></div>
+        </div>
+        <span class="graph-value">76%</span>
+      </div>
+      <div class="graph-item">
+        <span class="graph-label">50대 및 60대 남성 (전립선 케어)</span>
+        <div class="graph-bar-wrapper">
+          <div class="graph-bar" style="width: 68%;"></div>
+        </div>
+        <span class="graph-value">68%</span>
+      </div>
+      <div class="graph-item">
+        <span class="graph-label">잘못된 비전문적 자습 훈련 집단</span>
+        <div class="graph-bar-wrapper">
+          <div class="graph-bar" style="style: width: 24%; background-color: #e53e3e;"></div>
+        </div>
+        <span class="graph-value">24%</span>
+      </div>
+    </div>
+    <p>위의 도표에서 볼 수 있듯이, 명확한 이론 교육과 체계적인 기법 없이 무작정 자습을 선택한 사람들은 운동을 얼마 유지하지 못하고 이탈하거나 유의미한 만족을 보지 못한 비율이 극히 높습니다. 따라서 올바른 교육 정보를 수집하고 어플이나 전문가 상담 등의 다이렉트 혜택을 취하는 편이 전체 비용 측면에서도 실용적입니다.</p>
+  </section>
+
+  <section id="diagnostic-section">
+    <span id="diagnostic-anchor" class="anchor"></span>
+    <h2>7. 골반저근 자가진단 및 맞춤형 상담 솔루션</h2>
+    <p>자신의 현재 골반저근 탄력 수준을 스스로 점검해 보고, 향후 어떻게 훈련 방향을 설정해야 할지 전문가의 무상 상담을 연계받으실 수 있습니다. 기호가 없이 정형화된 아래 서식의 각 항목을 신중하게 기입하고 전송하시면 이메일 및 문자 메시지로 맞춤 가이드라인을 무료로 받아보실 수 있습니다.</p>
+    
+    <div class="diagnostic-form">
+      <h3>골반저근 상태 자가진단 및 무료 정보 신청서</h3>
+      <p>상담 진행과 맞춤 분석을 위해 신뢰할 수 있는 필수 정보만을 안전하게 처리할 것을 보장합니다.</p>
+      
+      <form action="/submit-pelvic-consult" method="POST">
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label for="user-name">성함 또는 가명 (필수)</label>
+            <input type="text" id="user-name" name="user_name" required placeholder="예: 홍길동">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="user-gender">생물학적 성별 (필수)</label>
+            <select id="user-gender" name="user_gender" required>
+              <option value="">선택해 주세요</option>
+              <option value="male">남성</option>
+              <option value="female">여성</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group" style="flex: 1;">
+            <label for="user-age">연령대 선택 (필수)</label>
+            <select id="user-age" name="user_age" required>
+              <option value="">연령대 선택</option>
+              <option value="20s">20대 이하</option>
+              <option value="30s">30대</option>
+              <option value="40s">40대</option>
+              <option value="50s">50대</option>
+              <option value="60s">60대 이상</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="user-phone">연락처 입력 (필수)</label>
+            <input type="tel" id="user-phone" name="user_phone" required placeholder="010-1234-5678" pattern="[0-9\-]+">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="user-email">결과 전송용 이메일 주소</label>
+          <input type="email" id="user-email" name="user_email" placeholder="example@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="symptom-select">가장 고민되는 하부 증상 또는 방문 사유 (필수)</label>
+          <select id="symptom-select" name="symptom_select" required>
+            <option value="">주요 고민을 선택하세요</option>
+            <option value="incontinence">재채기나 웃을 때 소변이 조금씩 새어 나옴 (요실금 의심)</option>
+            <option value="frequency">하루에 소변을 너무 자주 봄 (빈뇨, 야간뇨)</option>
+            <option value="prostate">남성 전립선 비대 및 잔뇨감 발생</option>
+            <option value="postpartum">출산 후 허물어진 골반저근 복원 목적</option>
+            <option value="core">허리 통증 완화 및 척추 코어 근육 발달을 희망</option>
+            <option value="prevention">특별한 증상은 없으나 예방 차원의 올바른 운동 숙지</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="device-interest">구매 또는 보유 중인 케겔운동 기구 및 브랜드 선호도</label>
+          <select id="device-interest" name="device_interest">
+            <option value="none">사용 중인 기구 없음 (맨몸 운동 위주)</option>
+            <option value="manual">실리콘 케겔볼 형태의 수동 도구 사용 중</option>
+            <option value="active">스마트 바이오피드백 체내형 기구에 관심 있음</option>
+            <option value="passive">의자형 전자기장 방석 기구 관련 정보 원함</option>
+            <option value="app">스마트폰 앱 및 건강 피트니스 어플만을 연동 중</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="additional-message">개인적인 건강 고민이나 궁금한 점 (예상 예산, 할인 혜택, 견적 비교 문의 등)</label>
+          <textarea id="additional-message" name="additional_message" rows="5" placeholder="평소에 디시나 펨코 등 온라인 후기에서 접한 정보들의 사실 여부나, 특정 전문 업체 기구들의 가장 저렴한곳 구매 혜택, 예상 가격 계산 등이 궁금하시다면 자유롭게 상세히 남겨주세요."></textarea>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="privacy-agree" name="privacy_agree" required>
+          <label for="privacy-agree">맞춤형 자가진단 분석 제공을 위한 개인정보 수집 및 상담 연계 활용 동의서에 전적으로 동의합니다. (필수)</label>
+        </div>
+
+        <button type="submit" class="btn-cta">자가진단 결과 제출하고 전문가 피드백 받기</button>
+      </form>
+    </div>
+  </section>
+  
